@@ -1,0 +1,78 @@
+<scroll-view class="personal-body">
+    <van-cell-group>
+        <van-cell title="头像"
+                  title-width="70px"
+                  center>
+            <van-image wx:if="{{user['avatar']}}"
+                       width="50px"
+                       height="50px"
+                       src="{{MINIO_AVATAR}}{{user['avatar']}}"/>
+        </van-cell>
+        <van-cell title="昵称"
+                  value="{{user['nickname']}}"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="{{ '/pages/user/personal/update-nickname/update-nickname?nickname=' + user['nickname']}}"/>
+        <van-cell title="性别"
+                  value="{{user['gender'] === 2 ? '保密': user['gender'] === 1 ? '男': '女'}}"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="{{ '/pages/user/personal/update-gender/update-gender?gender=' + user['gender']}}"/>
+        <van-cell title="年龄"
+                  value="{{user['age']}}"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="{{ '/pages/user/personal/update-age/update-age?age=' + user['age']}}"/>
+        <van-cell title="星座"
+                  value="{{user['zodiac']}}"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="{{ '/pages/user/personal/update-zodiac/update-zodiac?zodiac=' + user['zodiac']}}"/>
+        <van-cell title="省份"
+                  value="{{user['province']}}"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="{{ '/pages/user/personal/update-province/update-province?province=' + user['province']}}"/>
+        <van-cell title="邮箱"
+                  value="{{user['email']}}"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="{{ '/pages/user/personal/update-email/update-email?email=' + user['email']}}"/>
+        <van-cell title="描述"
+                  value="{{user['info']}}"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="{{ '/pages/user/personal/update-info/update-info?info=' + user['info']}}"/>
+        <van-cell title="账号"
+                  value="{{user['username']}}"
+                  title-width="70px"/>
+        <van-cell title="密码"
+                  value="*******"
+                  title-width="70px"
+                  is-link
+                  link-type="navigateTo"
+                  url="/pages/user/personal/update-password/update-password"/>
+        <van-cell title="真实姓名"
+                  value="{{user['realname']}}"
+                  title-width="70px"/>
+        <van-cell title="身份证号"
+                  value="{{user['idcard']}}"
+                  title-width="70px"/>
+        <van-cell title="手机号码"
+                  value="{{user['phone']}}"
+                  title-width="70px"/>
+        <van-cell title="创建时间"
+                  value="{{user['created']}}"
+                  title-width="70px"/>
+        <van-cell title="修改时间"
+                  value="{{user['updated']}}"
+                  title-width="70px"/>
+    </van-cell-group>
+</scroll-view>

@@ -1,0 +1,8 @@
+server:
+  port: 24107 # 端口号
+spring:
+  application:
+    name: ml-socket # 服务名
+  web:
+    resources:
+      static-locations: classpath:/templates/ # 静态目录

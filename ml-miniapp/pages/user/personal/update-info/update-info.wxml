@@ -1,0 +1,17 @@
+<view class="update-info-board">
+    <van-field custom-class="field"
+               type="textarea"
+               maxlength="{{500}}"
+               show-word-limit="{{true}}"
+               autosize
+               border="{{false}}"
+               value="{{ info }}"
+               placeholder="请输入描述信息"
+               bindinput="changeInfo"/>
+    <van-button custom-class="submit-btn"
+                type="info"
+                block
+                bind:tap="updateInfo">
+        确认修改
+    </van-button>
+</view>

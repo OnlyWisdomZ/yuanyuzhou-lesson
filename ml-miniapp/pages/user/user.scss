@@ -1,0 +1,40 @@
+@import "app";
+
+.user-head {
+    margin-top: 40rpx; // 外边距
+
+    .nickname-col {
+        text-align: left; // 文本居左
+        line-height: 80rpx; // 行高
+    }
+
+    .van-tag {
+        margin-right: 10rpx; // 外边距
+    }
+}
+
+.operation-btn {
+    margin: 40rpx 20rpx; // 外边距
+
+    .van-grid-item__content {
+        background: $black; // 背景颜色
+        border: 1rpx solid $yellow; // 边框颜色
+        box-sizing: border-box; // 盒子模型
+        color: $yellow; // 字体颜色
+        border-radius: 5rpx; // 边框圆角
+    }
+
+    .van-grid-item__text {
+        font-size: 25rpx; // 字体大小
+        color: $white; // 字体颜色
+    }
+}
+
+.user-foot {
+    padding: 0 30rpx; // 内边距
+
+    .van-button {
+        margin-top: 30rpx; // 外边距
+        border-radius: 15rpx; // 边框圆角
+    }
+}

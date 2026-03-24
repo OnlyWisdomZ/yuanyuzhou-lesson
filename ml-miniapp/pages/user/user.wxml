@@ -1,0 +1,71 @@
+<view class="user-head">
+    <van-row>
+        <van-col class="avatar-col"
+                 span="8"
+                 wx:if="{{user['avatar']}}">
+            <van-uploader file-list="{{avatarFile}}"
+                          max-count="1"
+                          accept="image"
+                          deletable="{{false}}"
+                          bind:after-read="uploadAvatar">
+                <van-image width="100"
+                           height="100"
+                           fit="cover"
+                           round
+                           src="{{MINIO_AVATAR}}{{user['avatar']}}"/>
+            </van-uploader>
+        </van-col>
+        <van-col class="nickname-col" span="16">
+            <view>{{user['nickname']}}</view>
+            <view>
+                <van-tag size="medium"
+                         mark
+                         type="primary">
+                    {{user['age']}}岁
+                </van-tag>
+                <van-tag size="medium"
+                         mark
+                         type="danger">
+                    {{user['zodiac']}}
+                </van-tag>
+                <van-tag size="medium"
+                         mark
+                         type="warning">
+                    {{user['province']}}
+                </van-tag>
+            </view>
+        </van-col>
+    </van-row>
+</view>
+<view class="operation-btn">
+    <van-grid gutter="20rpx">
+        <van-grid-item icon="video"
+                       text="我的课程"
+                       link-type="navigateTo"
+                       url="/pages/user/course/course"/>
+        <van-grid-item icon="shop-o"
+                       text="我的订单"
+                       link-type="navigateTo"
+                       url="/pages/user/order/order"/>
+        <van-grid-item icon="star"
+                       text="我的收藏"
+                       link-type="navigateTo"
+                       url="/pages/user/follow/follow"/>
+        <van-grid-item icon="user"
+                       text="个人信息"
+                       link-type="navigateTo"
+                       url="/pages/user/personal/personal"/>
+    </van-grid>
+</view>
+<view class="user-foot">
+    <van-button block
+                type="danger"
+                bind:tap="remove">
+        注销账号
+    </van-button>
+    <van-button block
+                type="warning"
+                bind:tap="logout">
+        退出登录
+    </van-button>
+</view>

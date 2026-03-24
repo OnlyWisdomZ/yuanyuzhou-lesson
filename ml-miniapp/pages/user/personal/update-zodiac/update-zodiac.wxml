@@ -1,0 +1,10 @@
+<view class="update-zodiac-board">
+    <van-picker wx:if="{{currentZodiacIdx}}"
+                show-toolbar
+                title="重新选择星座"
+                columns="{{ zodiacOptions }}"
+                default-index="{{ currentZodiacIdx }}"
+                bind:change="onChange"
+                bind:cancel="onCancel"
+                bind:confirm="updateZodiac"/>
+</view>

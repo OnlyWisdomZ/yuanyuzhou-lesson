@@ -1,0 +1,96 @@
+<van-sticky class="free-video" wx:if="{{videoSrc && videoPoster}}">
+    <video src="{{videoSrc}}"
+           controls
+           show-mute-btn
+           enable-danmu
+           danmu-btn
+           poster="{{videoPoster}}"
+           title="{{videoTitle}}"
+           danmu-list="{{welcomeBarrage}}"/>
+</van-sticky>
+<view class="course-info" wx:if="{{course}}">
+    <van-divider contentPosition="center" dashed>课程详情</van-divider>
+    <van-cell-group inset>
+        <van-cell icon="flag-o"
+                  title="课程类别"
+                  value="{{course['category']['title']}}"/>
+        <van-cell icon="notes-o"
+                  title="课程标题"
+                  value="{{course['title']}}"/>
+        <van-cell icon="user-o"
+                  title="课程作者"
+                  value="{{course['author']}}"/>
+        <van-cell icon="clock-o"
+                  title="创建日期"
+                  value="{{course['created']}}"/>
+        <van-cell icon="clock-o"
+                  title="更新日期"
+                  value="{{course['updated']}}"/>
+        <van-cell icon="cash-o"
+                  title="课程价格"
+                  value="{{course['price'] + ' 元'}}"/>
+        <van-cell icon="font-o"
+                  title="课程简介"
+                  value="{{course['info']}}"/>
+    </van-cell-group>
+</view>
+<view class="operation-tabs">
+    <van-tabs active="{{activeTab}}"
+              color="orange"
+              type="card"
+              animated
+              tab-class="tab">
+        <van-tab title="课程摘要" name="摘要">
+            <view class="summary" wx:if="{{course['summary']}}">
+                <van-image width="100%"
+                           fit="widthFix"
+                           src="{{MINIO_COURSE_SUMMARY}}{{course['summary']}}"/>
+            </view>
+            <van-empty wx:else image="error" description="暂无摘要图片"/>
+            <view class="baseline">
+                <van-divider contentPosition="center" dashed>底线</van-divider>
+            </view>
+        </van-tab>
+        <van-tab title="课程目录" name="目录">
+            <view class="catalog" wx:if="{{course['seasons'].length > 0}}">
+                <view wx:for="{{course['seasons']}}"
+                      wx:key="id"
+                      wx:for-item="season"
+                      wx:for-index="si">
+                    <van-cell-group title="{{'第' + (si + 1) + '季：' + season['title']}}">
+                        <view wx:if="{{season['episodes'].length > 0}}">
+                            <van-cell wx:for="{{season['episodes']}}"
+                                      wx:key="id"
+                                      wx:for-item="episode"
+                                      wx:for-index="ei"
+                                      title="{{'第' + (ei + 1) + '集：' + episode['title']}}"
+                                      use-label-slot>
+                                <view slot="label" class="van-multi-ellipsis--l2">
+                                    {{episode['info']}}
+                                </view>
+                            </van-cell>
+                        </view>
+                    </van-cell-group>
+                </view>
+                <view class="baseline">
+                    <van-divider contentPosition="center" dashed>底线</van-divider>
+                </view>
+            </view>
+            <van-empty wx:else image="error" description="该课程暂无季次信息，请联系运维人员。"/>
+        </van-tab>
+    </van-tabs>
+</view>
+<view class="detail-foot">
+    <van-goods-action>
+        <van-goods-action-icon icon="chat-o"
+                               text="客服"
+                               bind:click="chatMe"/>
+        <van-goods-action-icon icon="cart-o"
+                               text="购物车"
+                               bind:click="toCart"/>
+        <van-goods-action-button text="加入购物车"
+                                 type="warning"
+                                 bind:click="addToCart"/>
+        <van-goods-action-button text="立即购买" bind:click="pay"/>
+    </van-goods-action>
+</view>

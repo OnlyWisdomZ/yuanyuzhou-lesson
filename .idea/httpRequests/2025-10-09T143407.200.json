@@ -1,0 +1,25 @@
+{
+  "code": 1000,
+  "message": "请求成功",
+  "coderMessage": "请求成功",
+  "data": {
+    "id": 1,
+    "username": "admin",
+    "password": "",
+    "nickname": "一个超级可爱的管理员",
+    "email": "yy06200210@163.com",
+    "province": "黑龙江省",
+    "realname": "周*",
+    "avatar": "mouse.png",
+    "zodiac": "白羊座",
+    "phone": "182****0122",
+    "idcard": "230107*********210",
+    "gender": 1,
+    "age": 18,
+    "info": "系统管理员",
+    "version": 0,
+    "deleted": 0,
+    "created": "2025-09-19T13:47:53",
+    "updated": "2025-09-19T13:47:53"
+  }
+}

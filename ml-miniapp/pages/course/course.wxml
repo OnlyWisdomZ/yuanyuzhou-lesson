@@ -1,0 +1,46 @@
+<van-sticky class="search-ipt">
+    <van-search background="#252a34"
+                shape="round"
+                clear-trigger="always"
+                placeholder="请输入课程标题进行搜索"
+                input-align="center"
+                value="{{keyword}}"
+                bind:search="searchByKeyword"
+                bind:clear="cancelSearch"/>
+</van-sticky>
+
+<scroll-view class="course-list"
+             scroll-y="true"
+             bindscrolltolower="onListEnd">
+    <van-divider contentPosition="center" dashed>课程列表</van-divider>
+    <van-grid class="course-list-grid"
+              column-num="2"
+              gutter="20rpx">
+        <van-grid-item content-class="course-item"
+                       use-slot
+                       wx:for="{{courses}}"
+                       wx:key="id"
+                       bind:tap="showDetail"
+                       data-course-id="{{item['id']}}">
+            <van-image width="300rpx"
+                       height="200rpx"
+                       src="{{MINIO_COURSE_COVER}}/{{item['cover']}}"/>
+            <view class="title">{{ item['title'] }}</view>
+            <view class="info">
+                <view>
+                    <van-icon name="user-o"/>
+                    作者： {{item['author']}}
+                </view>
+                <view>
+                    <van-icon name="gold-coin-o"/>
+                    价格： {{item['price']}} 元
+                </view>
+            </view>
+        </van-grid-item>
+    </van-grid>
+    <van-divider contentPosition="center" dashed>没有更多课程了</van-divider>
+</scroll-view>
+
+<view class="baseline">
+    <van-divider contentPosition="center" dashed>底线</van-divider>
+</view>

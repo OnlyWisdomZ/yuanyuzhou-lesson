@@ -1,0 +1,6 @@
+{
+  "code": 1002,
+  "message": "非法参数",
+  "coderMessage": "coursePageDTO实例的pageNum属性校验失败: 当前第几页不能为空",
+  "data": null
+}
